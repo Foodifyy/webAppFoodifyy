@@ -5,7 +5,7 @@ import { SessionProvider } from "next-auth/react"
 
 const theme = {
   colors:{
-    body:"#f9f9f9",
+    body:"#f1f1f1",
     white: "#ffffff",
     gray_100: "#f3f4f6",
     border: "#c0c3c4"

@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
     margin: auto;
     width: 100%;
     background-color: ${({theme}) => theme.colors.white};
-    padding: 0.2em 0.2em;
+    padding: 0.2em 0.6em;
     box-shadow: rgb(0 0 0 / 5%) 0px 6px 2px -4px;   
     display: flex;
     align-items: center;
@@ -39,5 +39,4 @@ export const RightInnerContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 5px;
-    cursor: pointer;
 `
