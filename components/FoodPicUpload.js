@@ -20,17 +20,26 @@ const FoodPicUpload = ({setFoodApiData, setFoodImage}) => {
   
   const handleDataFetch = async () =>{
     
-    const response = await fetch('https://api.foodifyy.com/',{
-      method: 'POST',
-      body: base64Img ,
-      headers: {
-        'Content-Type' : 'application/json'
-      }
-    })
+    const bodyContent = new FormData();
+	  bodyContent.append(base64Img,
+		base64Img.split('data:image/jpeg;base64,')[1]);
+    // bodyContent.append(
+    //   "filename",
+    //   "FUNKY"+timestampNow
+    // );
 
-    const data = await response.json()
-    
-    setFoodApiData(data)
+    const response = await fetch('https://api.foodifyy.com/predictbase64',{
+      method: 'POST',
+      body: bodyContent,
+      headers: {
+        'Content-Type' : 'application/json',
+        "Access-Control-Allow-Origin": "*"
+      },
+      mode: "no-cors",
+    }).then(res => console.log(res))
+      .catch(err => console.log(err))
+
+    setFoodApiData(response)
     setFoodImage(base64Img)
   }
 
